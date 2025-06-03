@@ -271,6 +271,16 @@ public:
         return nullptr;
     }
 };
+/* ****
+* void eliminarEspacios
+****
+* Elimina espacios y caracteres de control al inicio y final de una cadena
+****
+* Input: (string& str) Referencia a la cadena que se va a modificar
+****
+* Returns: 
+* void, modifica la cadena pasada por referencia 
+**** */
 void eliminarEspacios(string& str) {
     size_t inicio = str.find_first_not_of(" \t\r\n");
     if (inicio == string::npos) {
@@ -280,7 +290,20 @@ void eliminarEspacios(string& str) {
     size_t fin = str.find_last_not_of(" \t\r\n");
     str = str.substr(inicio, fin - inicio + 1);
 }
-
+/* ****
+* void dividirLinea
+****
+* Separa una cadena en partes usando un delimitador especifico
+****
+* Input:
+* const string& linea: cadena a ser dividida
+*char delimitador: caracter a ser usado como separador de cadenas
+*string partes[]: arreglo donde se almacenan las partes
+*int& cantidad: referencia a donde se guardara el numero de partes encontradas
+****
+* Returns: 
+* void, modifica el arreglo partes, y la variable cantidad
+**** */
 void dividirLinea(const string& linea, char delimitador, string partes[], int& cantidad) {
     stringstream ss(linea);
     string parte;
@@ -290,7 +313,18 @@ void dividirLinea(const string& linea, char delimitador, string partes[], int& c
         partes[cantidad++] = parte;
     }
 }
-
+/* ****
+* void leerHabitaciones
+****
+* Lee cada habitacion (ID, Nombre, tipo, descripcion) y la agrega a la listaHabitaciones
+****
+* Input: 
+* ifstream &archivo: referencia al archivo donde se leeran las habitaciones
+* int cantidad: entero con la cantidad de habitaciones
+****
+* Returns: 
+* void, modifica la lista habitaciones y agrega lo asociado a estas
+*** */
 void leerHabitaciones(ifstream& archivo, int cantidad) {
     habitaciones = new Lista<Habitacion>();
     string linea;
@@ -322,7 +356,18 @@ void leerHabitaciones(ifstream& archivo, int cantidad) {
         habitaciones->agregar(new Habitacion(id, nombre, tipo, descripcion));
     }
 }
-
+/* ****
+* void leerArcos
+****
+* Lee conexiones entre habitaciones en el archivo
+****
+* Input: 
+*ifstream& archivo: referencia al archivo que sera modificado
+int cantidad: entero con la cantidad de arcos por leer
+****
+* Returns:
+* void, crea una lista con las conexiones entre las habitaciones 
+**** */
 void leerArcos(ifstream& archivo, int cantidad) {
     arcos = new Lista<Arco>();
     string linea;
@@ -342,7 +387,18 @@ void leerArcos(ifstream& archivo, int cantidad) {
         }
     }
 }
-
+/* ****
+* void leerEnemigos
+****
+* Lee enemigos y sus estadisticas
+****
+* Input:
+* ifstream& archivo: Referencia al archivo que se leera
+* int cantidad: entero con la cantidad de enemigos 
+****
+* returns:
+* void, crea una nueva lista que almacena a los enemigos con sus estadisticas correspondientes
+**** */
 void leerEnemigos(ifstream& archivo, int cantidad) {
     enemigos = new Lista<Enemigo>();
     string linea;
@@ -369,7 +425,18 @@ void leerEnemigos(ifstream& archivo, int cantidad) {
         }
     }
 }
-
+/* ****
+* void leerEventos
+****
+* Lee los eventos del archivo, opciones y efectos
+****
+* Input: 
+* ifstream& archivo: referencia al archivo que sera leido
+* int cantidad: entero con la cantidad de eventos
+**** 
+Returns:
+* void, crea una lista de los eventos con las opciones y efectos correspondientes de cada uno
+**** */
 void leerEventos(ifstream& archivo, int cantidad) {
     eventos = new Lista<Evento>();
     string linea;
@@ -415,7 +482,17 @@ void leerEventos(ifstream& archivo, int cantidad) {
         eventos->agregar(nuevo);
     }
 }
-
+/* ****
+* void leerMejoras
+****
+* Lee mejoras disponibles en el archivo
+****
+* Input:
+* ifstream& archivo: referencia al archivo por leer
+****
+* Returns: 
+* void, crea una lista de mejoras y agrega las mejoras leidas en la lista creada
+**** */
 void leerMejoras(ifstream& archivo) {
     mejoras = new ListaMejoras();
     string linea;
@@ -426,8 +503,17 @@ void leerMejoras(ifstream& archivo) {
         mejoras->agregar(linea);
     }
 }
-
-
+/* ****
+* void construirArbol
+****
+* Contruye el arbol ternario usando las conexiones leidas en el archivo
+****
+* Input: 
+* Ninguno (utiliza las listas de habitaciones y arcos)
+****
+* Returns:
+* void, establece las conexiones y define la raiz 
+**** */
 void construirArbol() {
     if (!habitaciones || !arcos) return;
     
@@ -449,7 +535,18 @@ void construirArbol() {
         }
     }
 }
-
+/* ****
+* void cargarMapa
+****
+* Carga el archivo y detecta cada seccion, cada una se lee y se almacenan las variables correspondientes a la seccion
+****
+* Input:
+* const char* nombreArchivo: puntero con el nombre del archivo
+****
+* Returns:
+* void, filtra por seccion y llama a las funciones de leer para almacenar en las listas correspondientes para luego
+  llamar a construirArbol para enlazar las habitaciones con los arcos
+**** */
 void cargarMapa(const char* nombreArchivo) {
     ifstream archivo(nombreArchivo);
     if (!archivo.is_open()) {
@@ -490,7 +587,17 @@ void cargarMapa(const char* nombreArchivo) {
     construirArbol();
     cout << "Archivo cargado exitosamente!" << endl;
 }
-
+/* ****
+* void selecionarEnemigosAleatorios
+****
+* selecciona enemigos aleatorios para un combate segun su probabilidad de aparecer
+****
+* Input:
+* ColaCombate& cola: referencia a una Cola donde se agregaran los enemigos seleccionados para el combate
+****
+* Returns:
+* void, modifica la colaCombate agregando los enemigos seleccionados
+**** */
 void seleccionarEnemigosAleatorios(ColaCombate& cola) {
     if (!enemigos) return;
     
@@ -514,7 +621,19 @@ void seleccionarEnemigosAleatorios(ColaCombate& cola) {
         }
     }
 }
-
+/* ****
+* bool realizarCombate
+****
+* Crea una cola, la que luego llama a la funcion seleccionarEnemigosAleatorios()
+  y ejecuta el combate imprimiendo los ataques y la vida correspondiente
+****
+* Input: 
+* Jugador& jugador: referencia al objeto Jugador, que sera modificado durante el combate
+****
+* Returns: 
+* True: si el jugador sobrevive
+* False: si el jugador muere
+**** */
 bool realizarCombate(Jugador& jugador) {
     ColaCombate cola;
     seleccionarEnemigosAleatorios(cola);
@@ -577,7 +696,18 @@ bool realizarCombate(Jugador& jugador) {
         return false;
     }
 }
-
+/* ****
+* void aplicarEfecto
+****
+* Analiza el modificador del efecto y segun este aplica el efecto al jugador
+****
+* Input:
+* Jugador& jugador: referencia al jugador, que sera modificado durante esta funcion
+* const Efecto& efecto: estructura que coontiene la descripcion y el modificador
+****
+* Returns: 
+* void, solo modifica al jugador
+**** */
 void aplicarEfecto(Jugador& jugador, const Efecto& efecto) {
     string mod = efecto.modificador;
     
@@ -619,7 +749,18 @@ void aplicarEfecto(Jugador& jugador, const Efecto& efecto) {
         }
     }
 }
-
+/* ****
+* Evento *seleccionarEventoAleatorio 
+****
+* Suma las probabilidades de cada evento y genera un numero aleatorio entre 0 y la suma total de probabilidades 
+  y recorre la lista de eventos para luego seleccionar uno segun su probabilidad acumulada
+****
+* Input: 
+* Ninguno. no recibe parametros
+****
+* Returns: 
+* Retorna un puntero al evento seleccionado aleatoriamente , si no hay evento o la probabilidad total es 0 returna nullptr
+**** */
 Evento* seleccionarEventoAleatorio() {
     if (!eventos) return nullptr;
     
@@ -640,7 +781,18 @@ Evento* seleccionarEventoAleatorio() {
     
     return nullptr;
 }
-
+/* ****
+* bool manejar Evento
+**** 
+* muestra la descripcion del evento y las opciones A/B, pide al usuario que eliga una opcion, aplica el efecto de la opcion al jugador
+****
+* Input:
+* Jugador& jugador: Referencia al jugador que sera modificado
+**** 
+* Returns:
+* True: si el jugador sigue vivo tras el evento
+* False: si el jugador muere tras el evento
+**** */
 bool manejarEvento(Jugador& jugador) {
     Evento* evento = seleccionarEventoAleatorio();
     if (!evento) {
@@ -666,7 +818,17 @@ bool manejarEvento(Jugador& jugador) {
     
     return jugador.estaVivo();
 }
-
+/* ****
+* void mostrarYAplicarMejora
+****
+* Muestra todas las mejoras disponibles, recorriendo la listaMejoras y pide al usuario que eliga una de estas para luego aplicar su efecto a el usuario
+**** 
+* Input: 
+* Jugador& jugador: Referencia al jugador, que sera modificado durante esta funcion
+****
+* Returns: 
+* void, Modifica al jugador y muestra mensajes
+**** */
 void mostrarYAplicarMejora(Jugador& jugador) {
     if (!mejoras) return;
     
@@ -710,7 +872,17 @@ void mostrarYAplicarMejora(Jugador& jugador) {
         contador++;
     }
 }
-
+/* ****
+* Habitacion* seleccionarSiguienteHabitacion
+****
+* Muestra las habitaciones conectadas a la actual y pide al usuario que eliga a cual ir
+****
+* Input: 
+* Habitacion* actual: puntero que apunta a la Habitacion actual
+**** 
+* Returns: 
+* Puntero a la habitacion elegida por el usuario, si no es valida nullptr
+**** */
 Habitacion* seleccionarSiguienteHabitacion(Habitacion* actual) {
     if (!actual) return nullptr;
     
@@ -742,7 +914,20 @@ Habitacion* seleccionarSiguienteHabitacion(Habitacion* actual) {
     
     return nullptr;
 }
-
+/* ****
+* void jugar 
+**** 
+* Inicializa el jugador y la habitacion actual(raiz), Usa una pila para guardar el camino recorrido
+  En cada Iteracion: Muestra el nombre y descripcion de la habitacion actual, si es de tipo "FIN" termina el juego, "COMBATE" realiza el combate y aplica mejora si sobrevive
+  , "EVENTO" ejecuta un evento aleatorio, muestra el estado del jugador, si hay habitaciones conectadas te da la opcion de elegir la siguiente
+  si no hay mas caminos termina el juego
+**** 
+* INPUT: 
+* no recibe ningun parametro
+**** 
+* Returns: 
+* void, controla el flujo del juego
+**** */
 void jugar() {
     if (!raizArbol) {
         cout << "Error: No se pudo cargar el mapa del juego." << endl;
