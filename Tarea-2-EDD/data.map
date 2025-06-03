@@ -1,58 +1,60 @@
 INICIO DE ARCHIVO
 HABITACIONES
-25
-0 Umbral Roto (INICIO)
-Has cruzado el límite entre mundos. El reflejo del mundo parece desalineado.
-1 Puente de Vidrio (EVENTO)
-Caminas sobre un puente que refleja tus peores miedos.
-2 Archivo Sombrío (COMBATE)
-Una entidad hecha de recuerdos borrosos te ataca.
-3 Sala de Relojes (EVENTO)
-Todos los relojes marcan la misma hora, excepto uno...
-4 Pasaje de Humo (COMBATE)
-Figuras hechas de humo tratan de devorarte.
-5 Cúpula del Silencio (EVENTO)
-El sonido desaparece por completo. Solo escuchas tus pensamientos.
-6 Torre Fractal (COMBATE)
-Te enfrentas a una versión distorsionada de ti mismo.
-7 Patio de Eco (EVENTO)
-Cada paso que das es imitado... por algo más.
-8 Cámara de Eco (COMBATE)
-El eco comienza a materializarse en forma de espectros.
-9 Laberinto de Cristal (EVENTO)
-Los muros reflejan infinitas versiones de ti. No todos parecen pacíficos.
-10 Jardín Podrido (COMBATE)
-Plantas agresivas brotan bajo tus pies.
-11 Sala Roja (EVENTO)
-Una luz roja ilumina símbolos grabados en el suelo. Algo cambia en ti.
-12 Archivo Central (COMBATE)
-Estás en el núcleo del archivo. Te espera el Guardián del Saber.
-13 Estación Inversa (EVENTO)
-Una voz te pregunta: "¿Quieres deshacer tu camino?"
-14 Observatorio Ciego (EVENTO)
-Ves todo, excepto lo importante. Algo te observa.
-15 Río de Tinta (COMBATE)
-Las aguas negras te arrastran hacia seres hechos de letras rotas.
-16 Reflejo Hostil (COMBATE)
-Tu reflejo se mueve por su cuenta... y te ataca.
-17 Vórtice (FIN)
-Te absorbe un vórtice de datos corruptos. Tu existencia se fragmenta.
-18 Renacimiento (FIN)
-Reencarnas en otro mundo, pero conservas la memoria. ¿Bendición o maldición?
-19 Sueño Persistente (FIN)
-Despiertas una y otra vez. Sigues atrapado.
-20 Archivo Borrado (FIN)
-Tu historia fue eliminada. Nunca exististe.
-21 Tú Verdadero (FIN)
-Encuentras una puerta. Al cruzarla, comprendes quién eras. Fin.
-22 Reverso del Archivo (FIN)
-Todo se invierte. Ahora tú eres el enemigo.
-23 Cámara Abierta (FIN)
-Un resplandor lo consume todo. Quedas libre.
-24 Torre Espejada (FIN)
-Llegas a la cima. Ves todos los caminos posibles, pero ninguno lleva al hogar.
+26
+0 Núcleo Inestable (INICIO)
+Despiertas conectado a una máquina que borra recuerdos. No recuerdas cómo llegaste.
+1 Cámara de Control (EVENTO)
+Pantallas parpadean con memorias tuyas que no reconoces.
+2 Túnel de Mantenimiento (COMBATE)
+Robots defectuosos atacan todo lo que se mueve.
+3 Almacén de Fragmentos (EVENTO)
+Encuentras recuerdos encapsulados flotando en el aire.
+4 Observatorio de Sueños (COMBATE)
+Una bestia tejida con pesadillas te observa desde lo alto.
+5 Jardín de los Caídos (EVENTO)
+Cruces oxidadas con nombres olvidados rodean el camino.
+6 Torre de Datos (COMBATE)
+Los guardianes del conocimiento antiguo no te quieren allí.
+7 Refugio de Memoria (EVENTO)
+Una voz familiar te llama desde un rincón oscuro.
+8 Cápsula Abandonada (COMBATE)
+Un clon tuyo, más antiguo y furioso, te ataca.
+9 Cámara de Cifrado (EVENTO)
+Una puerta cerrada te lanza preguntas sobre tu identidad.
+10 Taller Desmantelado (COMBATE)
+Un enjambre de nanomáquinas intenta desmantelarte.
+11 Pozo de los Ecos (EVENTO)
+Escuchas gritos de vidas pasadas que tal vez fueron tuyas.
+12 Cámara de Anomalías (COMBATE)
+Seres hechos de datos corruptos surgen de una grieta.
+13 Sala de Decisión (EVENTO)
+Ves tres botones: rojo, azul y uno cubierto de polvo.
+14 Hall del Olvido (EVENTO)
+Una fuente oscura susurra: "Recuerda para ser libre."
+15 Silo del Dolor (COMBATE)
+Tus emociones toman forma y te atacan sin piedad.
+16 Núcleo Roto (COMBATE)
+El corazón de la máquina late erráticamente. Y sangra.
+17 Horizonte Estático (FIN)
+El mundo deja de avanzar. Quedas congelado para siempre.
+18 Escalera sin Fin (FIN)
+Subes y subes... y sigues subiendo.
+19 Reprogramación Total (FIN)
+Pierdes todo recuerdo de quién eras. Ahora eres otro.
+20 Liberación (FIN)
+Desconectas la máquina y despiertas... en otra vida.
+21 Ciclo Infinito (FIN)
+Vuelves a empezar sin saberlo. Otra vez.
+22 Memoria Artificial (FIN)
+Tus recuerdos fueron inventados. Pero ya no importa.
+23 Punto de Restauración (FIN)
+Recuperas tu vida pasada... pero el mundo ya cambió.
+24 Identidad Rota (FIN)
+Ya no sabes quién eres. Pero debes seguir.
+25 Cámara Blanca (FIN)
+Todo se vuelve blanco. Solo queda la paz.
 ARCOS
-24
+25
 0 -> 1
 0 -> 2
 1 -> 3
@@ -77,69 +79,70 @@ ARCOS
 14 -> 22
 15 -> 23
 16 -> 24
+8 -> 25
 ENEMIGOS
 6
-Sombrario | Vida 12 | Ataque 4 | Precision 0.7 | Probabilidad 0.3
-Fragmento | Vida 8 | Ataque 6 | Precision 0.6 | Probabilidad 0.3
-EcoRojo | Vida 15 | Ataque 5 | Precision 0.5 | Probabilidad 0.2
-RaízMuerta | Vida 10 | Ataque 7 | Precision 0.4 | Probabilidad 0.2
-Reflejo | Vida 20 | Ataque 6 | Precision 0.6 | Probabilidad 0.2
-Archivador | Vida 25 | Ataque 8 | Precision 0.4 | Probabilidad 0.1
+Null | Vida 10 | Ataque 3 | Precision 0.6 | Probabilidad 0.3
+Datacrash | Vida 15 | Ataque 5 | Precision 0.5 | Probabilidad 0.3
+Somnia | Vida 18 | Ataque 4 | Precision 0.7 | Probabilidad 0.2
+Clon | Vida 20 | Ataque 6 | Precision 0.6 | Probabilidad 0.2
+Nanite | Vida 8 | Ataque 7 | Precision 0.4 | Probabilidad 0.2
+Memoria | Vida 25 | Ataque 8 | Precision 0.3 | Probabilidad 0.1
 EVENTOS
 5
 &
-Miedo
+Pantalla Rota
 Probabilidad 0.2
-Un miedo enterrado se hace presente.
-A: Enfrentarlo
-Ganas resolución.
+Una pantalla muestra tu infancia. ¿Estás seguro que fue así?
+A: Tocar la imagen
+Te sientes más fuerte.
 +1 Ataque
-B: Huir
-Te desorientas.
--0.2 Precision
+B: Apagarla
+Sientes un leve mareo.
+-0.2 PRECISION
 &
-Pregunta Extraña
+Ruido Blanco
 Probabilidad 0.2
-Una voz te pregunta: "¿Cuál es tu verdadero nombre?"
-A: Responder
-Sientes un cambio dentro.
-+0.2 Precision
-B: Guardar silencio
-La voz desaparece. Nada ocurre.
-&
-Espejo Agrietado
-Probabilidad 0.2
-Un espejo se parte al verte.
-A: Repararlo
-Te ves mejor que nunca.
-+5 Vida
-B: Alejarte
-Evitas algo peligroso.
-+1 Recuperacion
-&
-Susurro
-Probabilidad 0.2
-Un susurro revela un secreto prohibido.
+Un zumbido te llena los oídos.
 A: Escucharlo
-Tu mente se expande.
-+0.2 Precision
-B: Ignorarlo
+Tu mente se aclara extrañamente.
++0.2 PRECISION
+B: Taparte
 Tu cuerpo se relaja.
 +5 Vida
 &
-Luz Falsa
+Códigos Perdidos
 Probabilidad 0.2
-Una luz promete mostrarte el camino.
-A: Seguirla
-Era una trampa.
--5 Vida
-B: Apagarla
-Tomas control del entorno.
-+1 Ataque
+En una consola encuentras código antiguo.
+A: Ejecutarlo
+Obtienes una mejora inesperada.
++1 RECUPERACION
+B: Ignorarlo
+Sientes que perdiste una oportunidad.
+Ninguna consecuencia.
+&
+Espejo Fragmentado
+Probabilidad 0.2
+Tu reflejo está roto y sonríe sin moverse.
+A: Romper el espejo
+Ganas valentía.
++1 ATAQUE
+B: Retroceder
+Te alejas en silencio.
+-0.1 PRECISION
+&
+Pregunta de Voz
+Probabilidad 0.2
+"¿Quién eras antes?" te pregunta una voz sintética.
+A: Recordar
+Recuperas fragmentos útiles.
++0.2 PRECISION
+B: Olvidar
+Tu cuerpo se revitaliza.
++5 VIDA
 MEJORAS DE COMBATE
 +5 Vida
 +0.2 Precision
 +1 Ataque
 +1 Recuperacion
 FIN DE ARCHIVO
-

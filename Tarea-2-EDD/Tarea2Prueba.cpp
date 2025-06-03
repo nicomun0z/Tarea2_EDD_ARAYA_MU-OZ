@@ -172,7 +172,8 @@ public:
     }
     
     void eliminarMuertos() {
-        while (frente && frente->enemigo->vida <= 0) desencolar();
+        while (frente && frente->enemigo->vida <= 0) 
+            desencolar();
         
         if (frente) {
             for (NodoCombate* actual = frente; actual->siguiente;) {
@@ -758,35 +759,30 @@ void jugar() {
         camino.push(habitacionActual);
         cout << "\n--- " << habitacionActual->nombre << " ---" << endl;
         cout << habitacionActual->descripcion << endl;
-        cout << cont ;
-        
         if (habitacionActual->tipo == "FIN") {
             cout << "\n¡Has llegado al final de tu aventura!" << endl;
             break;
         }
-        
         bool continuar = true;
-        
+
         if (habitacionActual->tipo == "COMBATE") {
             continuar = realizarCombate(jugador);
             if (continuar){
                 mostrarYAplicarMejora(jugador);
                 cont ++;
-            } 
-            else if (habitacionActual->tipo == "EVENTO") {
-                continuar = manejarEvento(jugador);
-                cont ++;
             }
-
+        } else if (habitacionActual->tipo == "EVENTO") {
+            continuar = manejarEvento(jugador);
+            cont ++;
         }
-        
+
         if (!continuar) break;
-        
+
         jugador.mostrarEstado();
-        if( cont>= 2 &&(rand() % 100 < 99)){
+        if( cont>= 2 && (rand() % 100 < 10)){
+            cont = 0;
             cout << "\n¡Una puerta aparece!\n";
             Habitacion* abuelo = camino.abuelo();
-            cout << abuelo; 
             if(abuelo){
                 cout << "¿Entras por la puerta? " << abuelo->nombre << " ? (SI/NO): ";
                 string eleccion;
